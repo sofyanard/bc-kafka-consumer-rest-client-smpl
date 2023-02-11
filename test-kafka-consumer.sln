@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33402.96
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test-kafka-consumer", "test-kafka-consumer\test-kafka-consumer.csproj", "{F3655F86-C525-4DE0-B4AB-C6AE58464C97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3655F86-C525-4DE0-B4AB-C6AE58464C97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3655F86-C525-4DE0-B4AB-C6AE58464C97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3655F86-C525-4DE0-B4AB-C6AE58464C97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3655F86-C525-4DE0-B4AB-C6AE58464C97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30986A91-EC94-4C73-AC1C-74DB3ACB1111}
+	EndGlobalSection
+EndGlobal
