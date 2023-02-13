@@ -121,7 +121,7 @@ public class Program
 
         try
         {
-            logger.LogInformation($"Sending Post...");
+            logger.LogInformation($"Sending: {JsonConvert.SerializeObject(employee)}");
             HttpResponseMessage response = await _client.PostAsync(host, body);
 
             if (response.IsSuccessStatusCode)
@@ -132,8 +132,12 @@ public class Program
 
                 if (!string.IsNullOrEmpty(content))
                 {
-                    logger.LogInformation($"Get Response: {content}");
+                    logger.LogInformation($"Response Content: {content}");
                 }
+            }
+            else
+            {
+                logger.LogWarning($"Response Status: {response.StatusCode}");
             }
         }
         catch (Exception e)
