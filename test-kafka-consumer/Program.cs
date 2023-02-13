@@ -126,6 +126,8 @@ public class Program
 
             if (response.IsSuccessStatusCode)
             {
+                logger.LogInformation($"Response Status: {response.StatusCode}");
+
                 var content = await response.Content.ReadAsStringAsync();
 
                 if (!string.IsNullOrEmpty(content))
