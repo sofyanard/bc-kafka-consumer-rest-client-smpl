@@ -71,8 +71,8 @@ public class Program
                         logger.LogInformation($"Consuming: {JsonConvert.SerializeObject(cr)}");
                         logger.LogInformation($"Message Received: {cr.Value}");
 
-                        // Thread postThread = new Thread(() => { Post(cr.Value); });
-                        // postThread.Start();
+                        Thread postThread = new Thread(() => { Post(cr.Value); });
+                        postThread.Start();
                     }
                     catch (ConsumeException ce)
                     {
@@ -115,7 +115,7 @@ public class Program
         HttpClient _client = new HttpClient();
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        Employee employee = new Employee(1, message, message);
+        Employee employee = new Employee(0, message, null, message);
 
         HttpContent body = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
 
