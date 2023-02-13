@@ -32,11 +32,17 @@ public class Program
         string topic = appConfig["kafka:topic"];
         string groupId = appConfig["kafka:group-id"];
         string bootstrapServers = appConfig["kafka:bootstrap-server"];
+        string saslUsername = appConfig["kafka:sasl-username"];
+        string saslPassword = appConfig["kafka:sasl-password"];
 
         var consumerConfig = new ConsumerConfig
         {
             GroupId = groupId,
             BootstrapServers = bootstrapServers,
+            SecurityProtocol = SecurityProtocol.SaslSsl,
+            SaslMechanism = SaslMechanism.Plain,
+            SaslUsername = saslUsername,
+            SaslPassword = saslPassword,
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
         logger.LogInformation($"ConsumerConfig: {JsonConvert.SerializeObject(consumerConfig)}");
@@ -65,8 +71,8 @@ public class Program
                         logger.LogInformation($"Consuming: {JsonConvert.SerializeObject(cr)}");
                         logger.LogInformation($"Message Received: {cr.Value}");
 
-                        Thread postThread = new Thread(() => { Post(cr.Value); });
-                        postThread.Start();
+                        // Thread postThread = new Thread(() => { Post(cr.Value); });
+                        // postThread.Start();
                     }
                     catch (ConsumeException ce)
                     {
