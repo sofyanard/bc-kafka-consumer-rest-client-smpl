@@ -115,7 +115,7 @@ public class Program
         HttpClient _client = new HttpClient();
         _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        Employee employee = new Employee(0, message, null, message);
+        Employee employee = new Employee(0, message, message, message);
 
         HttpContent body = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
 
@@ -138,6 +138,7 @@ public class Program
             else
             {
                 logger.LogWarning($"Response Status: {response.StatusCode}");
+                logger.LogWarning($"Response Status: {JsonConvert.SerializeObject(response)}");
             }
         }
         catch (Exception e)
